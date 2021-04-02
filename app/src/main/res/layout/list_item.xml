@@ -1,0 +1,81 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listitem_card"
+    style="@style/Widget.MaterialComponents.CardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/listitem_name_textview"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_standard"
+            android:layout_marginTop="@dimen/margin_standard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Car Name" />
+
+        <ImageView
+            android:id="@+id/listitem_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="@dimen/margin_standard"
+            android:contentDescription="@string/car_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/listitem_name_textview"
+            tools:src="@drawable/sample_car" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/listitem_make_textview"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="@dimen/wrap_constraint"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_standard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/listitem_imageview"
+            tools:text="Make" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/listitem_model_textview"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="@dimen/wrap_constraint"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_standard"
+            android:textAlignment="viewEnd"
+            app:layout_constraintStart_toEndOf="@id/listitem_make_textview"
+            app:layout_constraintTop_toBottomOf="@id/listitem_imageview"
+            tools:text="Model" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/listitem_availability_textview"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="@dimen/wrap_constraint"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_standard"
+            android:textAlignment="viewEnd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/listitem_make_textview"
+            tools:text="Availability" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/listitem_buy_button"
+            android:layout_width="@dimen/wrap_constraint"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_standard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/listitem_make_textview"
+            android:visibility="gone"
+            tools:text="Buy" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
