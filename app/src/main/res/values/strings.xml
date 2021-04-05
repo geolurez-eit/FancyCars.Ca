@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">FancyCars.Ca</string>
     <string name="car_image">Car Image</string>
+    <string name="buy">Buy</string>
+    <string name="sortNameDescription">Sort by Car Name</string>
+    <string name="sortAvailabilityDescription">Sort by Car Availability</string>
+    <string name="sortAvailability">Sort by Availability</string>
+    <string name="sortName">Sort by Name</string>
+    <string name="availability_placeholder">Unavailable</string>
 </resources>

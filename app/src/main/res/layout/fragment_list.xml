@@ -15,16 +15,17 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/list_toolBar"
-            style="@style/Widget.MaterialComponents.Toolbar"
+            style="@style/ThemeOverlay.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            app:title="FancyCars" />
+            app:menu="@menu/list_toolbar_menu"
+            app:title="@string/app_name" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/wrap_constraint"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

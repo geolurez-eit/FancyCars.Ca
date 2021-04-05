@@ -3,4 +3,5 @@
     <dimen name="margin_standard">16dp</dimen>
     <dimen name="image_standard">48dp</dimen>
     <dimen name="wrap_constraint">0dp</dimen>
+    <dimen name="photo_standard">300dp</dimen>
 </resources>

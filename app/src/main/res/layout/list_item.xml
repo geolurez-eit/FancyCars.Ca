@@ -26,7 +26,7 @@
         <ImageView
             android:id="@+id/listitem_imageview"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="@dimen/photo_standard"
             android:layout_margin="@dimen/margin_standard"
             android:contentDescription="@string/car_image"
             android:scaleType="centerCrop"
@@ -71,11 +71,13 @@
             android:layout_width="@dimen/wrap_constraint"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_standard"
+            style="@style/Widget.MaterialComponents.Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/listitem_make_textview"
             android:visibility="gone"
-            tools:text="Buy" />
+            android:text="@string/buy"
+            tools:visibility="visible"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
