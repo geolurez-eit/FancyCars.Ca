@@ -1,7 +1,6 @@
 package com.georgeperez.myapplication.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,12 +27,13 @@ class CarListFragment : Fragment() {
             topAppBar = findViewById(R.id.list_toolBar)
         }
 
-        carRecyclerView.layoutManager = LinearLayoutManager(view.context,LinearLayoutManager.VERTICAL,false)
+        carRecyclerView.layoutManager =
+            LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
         carRecyclerView.adapter = listAdapter
 
         setRecyclerViewScrollListener()
 
-        /*FancyCarsViewModel.getCar()
+        /*FancyCarsViewModel.getCars()
         FancyCarsViewModel.cars.observe(this.viewLifecycleOwner,{
             listAdapter.update()
         })*/
@@ -63,7 +63,6 @@ class CarListFragment : Fragment() {
                 super.onScrollStateChanged(recyclerView, newState)
                 val totalItemCount = recyclerView.layoutManager?.itemCount
                 if (totalItemCount == (recyclerView.layoutManager as LinearLayoutManager).findLastVisibleItemPosition() + 1) {
-                    Log.d("MyTAG", "Load new list")
                     recyclerView.removeOnScrollListener(this)
                     setRecyclerViewScrollListener()
                 }

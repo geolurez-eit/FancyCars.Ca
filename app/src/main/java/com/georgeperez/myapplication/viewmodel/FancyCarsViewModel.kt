@@ -6,14 +6,13 @@ import com.georgeperez.myapplication.model.CarResponse
 import com.georgeperez.myapplication.model.FancyCarRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
-import java.util.*
 import kotlin.collections.HashMap
 
 object FancyCarsViewModel {
-    val cars = MutableLiveData<CarResponse>()
-    val availability = MutableLiveData<HashMap<CarResponse.Car, String>>()
+    private val cars = MutableLiveData<CarResponse>()
+    private val availability = MutableLiveData<HashMap<CarResponse.Car, String>>()
 
-    var availabilityData = mapOf(
+    var allCarData = mapOf(
         CarResponse.Car(1, "", "Fast Car", "Dodge", "Viper", 1990) to "In Dealership",
         CarResponse.Car(2, "", "Red Car", "Toyota", "Camry", 1992) to "Out of Stock",
         CarResponse.Car(3, "", "Blue Car", "Ford", "F150", 2000) to "Unavailable",
@@ -26,7 +25,7 @@ object FancyCarsViewModel {
         CarResponse.Car(10, "", "White Car", "Nissan", "Express", 1990) to "In Dealership"
     )
 
-    fun getCar() {
+    fun getCars() {
         FancyCarRepository.getCar()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -45,18 +44,19 @@ object FancyCarsViewModel {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                availability.value?.put(car, it.available.trim())
+                availability.value?.put(car, it.available)
+                allCarData = availability.value?.toMap() ?: mapOf()
             }, {
                 Log.d("TAG_X", it.localizedMessage ?: "getAvailability Error")
             })
     }
 
     fun sortByName(){
-        availabilityData = availabilityData.toSortedMap(compareBy { it.name })
+        allCarData = allCarData.toSortedMap(compareBy { it.name })
     }
     fun sortByAvailability(){
-        availabilityData = availabilityData.toList().sortedBy {
-            (k,v) -> v
+        allCarData = allCarData.toList().sortedBy {
+            (_,v) -> v
         }.toMap()
     }
 }

@@ -16,7 +16,7 @@ import com.georgeperez.myapplication.viewmodel.FancyCarsViewModel
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     private var carData: CarResponse.Car? = CarResponse.Car()
-    private var availabilityData: Map<CarResponse.Car, String>? = mapOf()
+    private var allCars: Map<CarResponse.Car, String>? = mapOf()
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.listitem_imageview)
@@ -36,12 +36,12 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        carData = availabilityData?.toList()?.get(position)?.first
+        carData = allCars?.toList()?.get(position)?.first
         holder.apply {
             name.text = carData?.name?.trim() ?: "No Data"
             make.text = carData?.make?.trim() ?: "No Data"
             model.text = carData?.model?.trim() ?: "No Data"
-            availability.text = availabilityData?.toList()?.get(position)?.second?.trim()
+            availability.text = allCars?.toList()?.get(position)?.second?.trim()
                 ?: holder.itemView.context.getString(R.string.availability_placeholder)
             Glide.with(this.itemView.context)
                 .load(carData?.img)
@@ -55,14 +55,14 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return availabilityData?.toList()?.size ?: 0
+        return allCars?.toList()?.size ?: 0
     }
 
     private fun checkAvailability(position: Int): Boolean =
-        (availabilityData?.toList()?.get(position)?.second == "In Dealership")
+        (allCars?.toList()?.get(position)?.second == "In Dealership")
 
     fun update() {
-        availabilityData = FancyCarsViewModel.availabilityData
+        allCars = FancyCarsViewModel.allCarData
         notifyDataSetChanged()
     }
 
