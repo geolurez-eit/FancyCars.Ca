@@ -15,7 +15,6 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/list_toolBar"
-            style="@style/ThemeOverlay.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             app:menu="@menu/list_toolbar_menu"

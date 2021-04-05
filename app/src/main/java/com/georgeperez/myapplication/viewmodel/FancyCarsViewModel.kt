@@ -25,18 +25,6 @@ object FancyCarsViewModel {
         CarResponse.Car(9, "", "Black Car", "Dodge", "Caravan", 2005) to "Unavailable",
         CarResponse.Car(10, "", "White Car", "Nissan", "Express", 1990) to "In Dealership"
     )
-    var carList = listOf(
-        CarResponse.Car(1, "", "Fast Car", "Dodge", "Viper", 1990),
-        CarResponse.Car(2, "", "Red Car", "Toyota", "Camry", 1992),
-        CarResponse.Car(3, "", "Blue Car", "Ford", "F150", 2000),
-        CarResponse.Car(4, "", "Green Car", "GM", "Laughter", 1990),
-        CarResponse.Car(5, "", "Yellow Car", "Honda", "Civic", 2020),
-        CarResponse.Car(6, "", "Gold Car", "Chrysler", "Pacifica", 1995),
-        CarResponse.Car(7, "", "Silver Car", "Jeep", "Cherokee", 1990),
-        CarResponse.Car(8, "", "Shiny Car", "Hummer", "Viper", 2006),
-        CarResponse.Car(9, "", "Black Car", "Dodge", "Caravan", 2005),
-        CarResponse.Car(10, "", "White Car", "Nissan", "Express", 1990),
-    )
 
     fun getCar() {
         FancyCarRepository.getCar()
@@ -57,7 +45,7 @@ object FancyCarsViewModel {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                availability.value?.put(car, it.available)
+                availability.value?.put(car, it.available.trim())
             }, {
                 Log.d("TAG_X", it.localizedMessage ?: "getAvailability Error")
             })

@@ -17,7 +17,6 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     private var carData: CarResponse.Car? = CarResponse.Car()
     private var availabilityData: Map<CarResponse.Car, String>? = mapOf()
-    private var carList: List<CarResponse.Car>? = listOf()
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.listitem_imageview)
@@ -42,7 +41,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
             name.text = carData?.name?.trim() ?: "No Data"
             make.text = carData?.make?.trim() ?: "No Data"
             model.text = carData?.model?.trim() ?: "No Data"
-            availability.text = availabilityData?.toList()?.get(position)?.second
+            availability.text = availabilityData?.toList()?.get(position)?.second?.trim()
                 ?: holder.itemView.context.getString(R.string.availability_placeholder)
             Glide.with(this.itemView.context)
                 .load(carData?.img)
@@ -63,9 +62,6 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
         (availabilityData?.toList()?.get(position)?.second == "In Dealership")
 
     fun update() {
-        //carList = FancyCarsViewModel.cars.value?.list
-        //carList = FancyCarsViewModel.carList
-        //availabilityData = FancyCarsViewModel.availability.value
         availabilityData = FancyCarsViewModel.availabilityData
         notifyDataSetChanged()
     }
