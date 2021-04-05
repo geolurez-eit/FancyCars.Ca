@@ -25,7 +25,7 @@ object FancyRetrofit {
         return retrofit.create(CarAPI::class.java)
     }
 
-    fun getCarResponse(): Observable<CarResponse> {
+    fun getCarResponse(): Observable<List<Car>> {
         return carAPI.getCarResponse()
     }
 

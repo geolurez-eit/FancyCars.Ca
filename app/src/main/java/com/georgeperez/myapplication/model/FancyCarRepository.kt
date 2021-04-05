@@ -7,7 +7,7 @@ object FancyCarRepository {
 
     private val fancyRetrofit = FancyRetrofit
 
-    fun getCar():Observable<CarResponse>{
+    fun getCar():Observable<List<Car>>{
         return fancyRetrofit.getCarResponse()
     }
     fun getAvailability(id:Int):Observable<AvailabilityResponse>{

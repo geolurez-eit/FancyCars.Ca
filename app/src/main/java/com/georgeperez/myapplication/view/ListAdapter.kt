@@ -10,13 +10,13 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.georgeperez.myapplication.R
-import com.georgeperez.myapplication.model.CarResponse
+import com.georgeperez.myapplication.model.Car
 import com.georgeperez.myapplication.viewmodel.FancyCarsViewModel
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
-    private var carData: CarResponse.Car? = CarResponse.Car()
-    private var allCars: Map<CarResponse.Car, String>? = mapOf()
+    private var carData: Car? = Car()
+    private var allCars: Map<Car, String>? = mapOf()
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.listitem_imageview)

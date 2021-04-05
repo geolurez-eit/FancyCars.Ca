@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface CarAPI {
     @GET(Constants.URL_PATH_CARS)
-    fun getCarResponse(): Observable<CarResponse>
+    fun getCarResponse(): Observable<List<Car>>
 
     @GET(Constants.URL_PATH_AVAILABILITY)
     fun getAvailabilityResponse(

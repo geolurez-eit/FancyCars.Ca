@@ -64,6 +64,7 @@ class CarListFragment : Fragment() {
                 val totalItemCount = recyclerView.layoutManager?.itemCount
                 if (totalItemCount == (recyclerView.layoutManager as LinearLayoutManager).findLastVisibleItemPosition() + 1) {
                     recyclerView.removeOnScrollListener(this)
+                    listAdapter.update()
                     setRecyclerViewScrollListener()
                 }
             }
